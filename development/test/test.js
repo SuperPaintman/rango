@@ -1,9 +1,9 @@
 "use strict";
 /* global it, describe */
 /** Requires */
-const assert    = require('assert');
+import assert       from 'assert';
 
-const rango     = require('../index');
+import * as rango   from '../index';
 
 describe("rango.alphabet", () => {
   describe("rango.alphabet(toChar)", () => {
@@ -21,7 +21,7 @@ describe("rango.alphabet", () => {
       // Lower
       assert.throws(function () {
         rango.alphabet(1);
-      } , /No such literal/);
+      }, /No such literal/);
 
       // Upper
       assert.throws(function () {
@@ -31,7 +31,7 @@ describe("rango.alphabet", () => {
       // Symbol
       assert.throws(function () {
         rango.alphabet("@");
-      } , /No such literal/);
+      }, /No such literal/);
     });
   });
 
@@ -39,24 +39,24 @@ describe("rango.alphabet", () => {
     it("should return valid results", function () {
       // Lower
       assert.deepEqual(rango.alphabet("h", "q")
-        , [ "h", "i", "j", "k", "l", "m", "n", "o", "p", "q" ]);
+        , ["h", "i", "j", "k", "l", "m", "n", "o", "p", "q"]);
 
       assert.deepEqual(rango.alphabet("H", "q")
-        , [ "h", "i", "j", "k", "l", "m", "n", "o", "p", "q" ]);
+        , ["h", "i", "j", "k", "l", "m", "n", "o", "p", "q"]);
 
       // Upper
       assert.deepEqual(rango.alphabet("H", "R")
-        , [ "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R" ]);
+        , ["H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R"]);
 
       assert.deepEqual(rango.alphabet("h", "R")
-        , [ "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R" ]);
+        , ["H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R"]);
     });
 
     it("should throw error", function () {
       // Lower
       assert.throws(function () {
         rango.alphabet(1, 2);
-      } , /No such literal/);
+      }, /No such literal/);
 
       // Upper
       assert.throws(function () {
@@ -66,19 +66,19 @@ describe("rango.alphabet", () => {
       // Symbol
       assert.throws(function () {
         rango.alphabet("A", "!");
-      } , /No such literal/);
+      }, /No such literal/);
 
       assert.throws(function () {
         rango.alphabet("a", "!");
-      } , /No such literal/);
+      }, /No such literal/);
 
       assert.throws(function () {
         rango.alphabet("!", "Z");
-      } , /No such literal/);
+      }, /No such literal/);
 
       assert.throws(function () {
         rango.alphabet("!", "z");
-      } , /No such literal/);
+      }, /No such literal/);
     });
   });
 
@@ -103,29 +103,29 @@ describe("rango.alphabet", () => {
       // Lower
       assert.throws(function () {
         rango.alphabet("a", "z", "de");
-      } , /No such language/);
+      }, /No such language/);
 
       // Upper
       assert.throws(function () {
         rango.alphabet("A", "Z", "de");
-      } , /No such language/);
+      }, /No such language/);
 
       // Symbol
       assert.throws(function () {
         rango.alphabet("A", "!", "de");
-      } , /No such language/);
+      }, /No such language/);
 
       assert.throws(function () {
         rango.alphabet("a", "!", "de");
-      } , /No such language/);
+      }, /No such language/);
 
       assert.throws(function () {
         rango.alphabet("!", "Z", "de");
-      } , /No such language/);
+      }, /No such language/);
 
       assert.throws(function () {
         rango.alphabet("!", "z", "de");
-      } , /No such language/);
+      }, /No such language/);
     });
   });
 });
