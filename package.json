@@ -1,6 +1,6 @@
 {
   "name": "rango",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Number / string literals ranges",
   "main": "index.js",
   "author": {
